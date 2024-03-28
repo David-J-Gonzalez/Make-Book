@@ -1,0 +1,16 @@
+/* src/components/GridContainer.css */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+  }
+  
+  @media (max-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+  }
