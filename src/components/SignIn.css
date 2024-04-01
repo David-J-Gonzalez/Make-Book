@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9cdd0; /* Light pink background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.login-header h1 {
+    color: #333;
+}
+
+.login-form-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+}
+
+.login-form-card h2,
+.login-form-card h3,
+.login-form-card h5 {
+    text-align: left;
+    margin-left: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.login-button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px
+}
+
+.login-button:hover {
+    background-color: #555;
+}
+
+.register-link {
+    margin-top: 15px;
+}
+
+.register-link a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.input-group label,
+.input-group input {
+    display: block;
+    width: 100%;
+    text-align: left; 
+    margin-left: 0; 
+    padding-left: 0;
+}
+
+.login-form {
+    padding-left: 0; 
+}
+
+.password-container {
+    position: relative;
+}
+
+.input-group input[type="password"] {
+    width: 100%; 
+    padding-right: 30px; 
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    height: 20px; 
+    width: 25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
