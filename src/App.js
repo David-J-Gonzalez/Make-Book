@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import GridContainer from './components/GridContainer';
-import SignIn from './components/Signin';
+import SignIn from './components/SignIn';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 
@@ -42,12 +42,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/login" element={
-            <div>
-              <h2>Login Page</h2>
-              {/* Placeholder or component for login content */}
-            </div>
-          } />
+          <Route path="/login" element={<SignIn />} />
           <Route path="/" element={<GridContainer stories={stories} />} />
           <Route path="/signup" element={
             <div>

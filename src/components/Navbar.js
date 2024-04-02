@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import './Navbar.css'; // Assume you've defined CSS for Navbar
+import { useNavigate } from 'react-router-dom';
+import './Navbar.css'; 
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  // Function to handle logout action
+  const handleLogout = () => {
+    navigate('/login'); // Redirect to the login page
+  };
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -19,12 +26,14 @@ const Navbar = () => {
         <button type="submit">🔍</button>
       </form>
       <div className="user-controls">
-        <div className="logout">
-          <img src="/images/logout.png" alt="Logout" />
-        </div>
+        <img 
+          src="/images/logout.png" 
+          alt="Logout" 
+          onClick={handleLogout} 
+          style={{ cursor: 'pointer' }} // This makes the cursor change to a pointer on hover, indicating the image is clickable
+        />
         <div className="profile">
-          <Link to= "/login"></Link>
-            <img src="/images/profile.png" alt="Profile" />
+          <img src="/images/profile.png" alt="Profile" />
         </div>
       </div>
     </div>
