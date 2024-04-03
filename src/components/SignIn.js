@@ -1,12 +1,18 @@
 // SignIn.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SignIn.css'; // Make sure the path to your CSS file is correct
 
 function SignIn() {
+  const navigate = useNavigate();
   const [isPasswordShown, setPasswordShown] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordShown(!isPasswordShown);
+  };
+
+  const handleSignUp = () => {
+    navigate('/signup'); 
   };
 
   return (
@@ -43,7 +49,7 @@ function SignIn() {
           <button type="submit" className="login-button">Login</button>
         </form>
         <div className="register-link">
-          Don't have an Account? <a href="#">Register</a>
+          Don't have an Account? <span onClick={handleSignUp} style={{ cursor: 'pointer', color: '#0077cc' }}>Register</span>
         </div>
       </div>
     </div>

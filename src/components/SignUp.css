@@ -1,0 +1,110 @@
+/* SignUp.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9cdd0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    margin: 0;
+}
+
+.register-container {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.register-header img {
+    margin-top: 20px; /* Consistent with the logo display style */
+}
+
+.register-form-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.register-form-card h2,
+.register-form-card h3,
+.register-form-card h5 {
+    text-align: left;
+    margin-left: 0;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: calc(100% - 20px); /* Adjust width to account for padding and border */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.register-button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.register-button:hover {
+    background-color: #555;
+}
+
+.login-link {
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.password-container {
+    position: relative;
+    display: flex; /* Use flex to position the toggle icon */
+    align-items: center; /* Center items vertically */
+}
+
+.input-group input[type="password"],
+.input-group input[type="email"], /* Adding email input type for consistency */
+.input-group input[type="text"] { /* Ensure all text inputs have the same styling */
+    flex-grow: 1; /* Let input take up available space */
+    padding-right: 40px; /* Leave space for the eye icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Place the icon inside the input field */
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}

@@ -5,9 +5,13 @@ import './Navbar.css';
 const Navbar = () => {
   const navigate = useNavigate();
 
-  // Function to handle logout action
-  const handleLogout = () => {
-    navigate('/login'); // Redirect to the login page
+
+  const handleLogin = () => {
+    navigate('/login'); 
+  };
+
+  const handleHome = () => {
+    navigate('/'); 
   };
 
   return (
@@ -16,7 +20,7 @@ const Navbar = () => {
         <img src="/images/logo.png" alt="Logo" />
       </div>
       <ul>
-        <li><a href="#">Home</a></li>
+      <li onClick={handleHome} style={{ cursor: 'pointer' }}>Home</li>
         <li><a href="#">About</a></li>
         <li><a href="#">Library</a></li>
         <li><a href="#">Contact Us</a></li>
@@ -29,11 +33,12 @@ const Navbar = () => {
         <img 
           src="/images/logout.png" 
           alt="Logout" 
-          onClick={handleLogout} 
-          style={{ cursor: 'pointer' }} // This makes the cursor change to a pointer on hover, indicating the image is clickable
         />
         <div className="profile">
-          <img src="/images/profile.png" alt="Profile" />
+          <img src="/images/profile.png" alt="Profile" 
+          onClick={handleLogin} 
+          style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
     </div>
