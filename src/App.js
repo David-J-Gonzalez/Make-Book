@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import Navbar from './NavBar/Navbar';
 import GridContainer from './components/GridContainer';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 
