@@ -3,6 +3,7 @@ import Navbar from './NavBar/Navbar';
 import GridContainer from './components/GridContainer';
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
+import CreateElement from './CreateElement/CreateElement';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 
@@ -33,7 +34,7 @@ const stories = [
     title: 'Create Your Story',
     imageSrc: '/images/plus.jpg',
     description: 'Have an idea? Bring your story to life.',
-    label: 'Create Your Story'
+    label: 'Create Your Story',
   },
 ];
 
@@ -46,12 +47,7 @@ function App() {
           <Route path="/login" element={<SignIn />} />
           <Route path="/" element={<GridContainer stories={stories} />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/createElement" element={
-            <div>
-              <h2>Create Element Page</h2>
-              {/* Placeholder or component for signup content */}
-            </div>
-          } />
+          <Route path="/createelement" element={<CreateElement />} />
         </Routes>
       </div>
     </Router>

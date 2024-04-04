@@ -1,49 +1,51 @@
 /* src/components/StoryCard.css */
 .story-card {
-    border: 1px solid #dddddd;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 15px;
-    background-color: #ffffff;
-    text-align: center;
-    max-width: 300px;
-  }
-  
-  .story-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .story-content {
-    margin-top: 1rem;
-  }
-  
-  .story-label {
-    font-weight: bold;
-    color: #3389EE;
-  }
-  
-  .story-card h3 {
-    color: #333;
-  }
-  
-  .story-card p {
-    color: #666;
-  }
-  
-  .read-more-btn {
-    background-color: #3389EE;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .read-more-btn:hover {
-    background-color: #2277DD;
-  }
-      
+  border: 1px solid #dddddd;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #ffffff;
+  text-align: center;
+  max-width: 300px; 
+  overflow: hidden; 
+}
+
+.story-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.story-content {
+  margin-top: 1rem;
+}
+
+.story-label {
+  font-weight: bold;
+  color: #3389EE;
+}
+
+.story-card h3 {
+  color: #333;
+}
+
+.story-card p {
+  color: #666;
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  hyphens: auto; 
+}
+.read-more-btn {
+  background-color: #3389EE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+  background-color: #2277DD;
+}
