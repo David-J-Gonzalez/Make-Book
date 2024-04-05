@@ -1,10 +1,12 @@
 // SignIn.js
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './SignIn.css'; // Make sure the path to your CSS file is correct
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./SignIn.css";
+import { useAuth } from "../auth/AuthContext";
 
 function SignIn() {
   const navigate = useNavigate();
+  const { logIn } = useAuth();
   const [isPasswordShown, setPasswordShown] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -12,7 +14,13 @@ function SignIn() {
   };
 
   const handleSignUp = () => {
-    navigate('/signup'); 
+    navigate("/signup");
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    logIn();
+    navigate("/createelement");
   };
 
   return (
@@ -24,10 +32,14 @@ function SignIn() {
         <h2>Welcome!</h2>
         <h3>Sign in to</h3>
         <h5>Make Book</h5>
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="username">User name</label>
-            <input type="text" id="username" placeholder="Enter your user name" />
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your user name"
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
@@ -39,17 +51,29 @@ function SignIn() {
                 className="password-input"
               />
               <img
-                src={isPasswordShown ? '/images/eyeclosed.png' : '/images/eyeopen.png'}
+                src={
+                  isPasswordShown
+                    ? "/images/eyeclosed.png"
+                    : "/images/eyeopen.png"
+                }
                 alt="Toggle password visibility"
                 onClick={togglePasswordVisibility}
-                className="toggle-password" // Use the class for styling instead of inline styles
+                className="toggle-password"
               />
             </div>
           </div>
-          <button type="submit" className="login-button">Login</button>
+          <button type="submit" className="login-button">
+            Login
+          </button>
         </form>
         <div className="register-link">
-          Don't have an Account? <span onClick={handleSignUp} style={{ cursor: 'pointer', color: '#0077cc' }}>Register</span>
+          Don't have an Account?{" "}
+          <span
+            onClick={handleSignUp}
+            style={{ cursor: "pointer", color: "#0077cc" }}
+          >
+            Register
+          </span>
         </div>
       </div>
     </div>

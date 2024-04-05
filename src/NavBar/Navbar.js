@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css'; 
+import { useAuth } from "../auth/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
+  const { logOut } = useAuth();
 
   const handleLogin = () => {
     navigate('/login'); 
@@ -12,6 +14,11 @@ const Navbar = () => {
 
   const handleHome = () => {
     navigate('/'); 
+  };
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    logOut();
+    navigate("/");
   };
 
   return (
@@ -32,7 +39,9 @@ const Navbar = () => {
       <div className="user-controls">
         <img 
           src="/images/logout.png" 
-          alt="Logout" 
+          alt="Logout"
+          onClick={handleLogOut}
+          style={{ cursor: 'pointer' }} 
         />
         <div className="profile">
           <img src="/images/profile.png" alt="Profile" 

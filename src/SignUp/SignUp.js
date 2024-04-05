@@ -1,16 +1,14 @@
 // SignUp.js
-import React, { useState } from 'react';
-import './SignUp.css'; // Assume this CSS file will have similar styles to SignIn.css
-
-
+import React, { useState } from "react";
+import "./SignUp.css";
 
 function SignUp() {
   const [isPasswordShown, setPasswordShown] = useState(false);
   const [isConfirmPasswordShown, setConfirmPasswordShown] = useState(false);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const togglePasswordVisibility = () => {
     setPasswordShown(!isPasswordShown);
@@ -22,9 +20,6 @@ function SignUp() {
 
   const handleSignUp = (event) => {
     event.preventDefault();
-    // Implement your sign-up logic here
-    // Make sure to validate the input and confirm that
-    // the password and confirm password fields match
     console.log(username, email, password, confirmPassword);
   };
 
@@ -39,7 +34,7 @@ function SignUp() {
         <form className="register-form" onSubmit={handleSignUp}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
-            <input 
+            <input
               type="text"
               id="username"
               placeholder="Choose a username"
@@ -49,7 +44,7 @@ function SignUp() {
           </div>
           <div className="input-group">
             <label htmlFor="email">Email</label>
-            <input 
+            <input
               type="email"
               id="email"
               placeholder="Enter your email"
@@ -68,7 +63,11 @@ function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <img
-                src={isPasswordShown ? '/images/eyeclosed.png' : '/images/eyeopen.png'}
+                src={
+                  isPasswordShown
+                    ? "/images/eyeclosed.png"
+                    : "/images/eyeopen.png"
+                }
                 alt="Toggle password visibility"
                 onClick={togglePasswordVisibility}
                 className="toggle-password"
@@ -86,14 +85,20 @@ function SignUp() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <img
-                src={isConfirmPasswordShown ? '/images/eyeclosed.png' : '/images/eyeopen.png'}
+                src={
+                  isConfirmPasswordShown
+                    ? "/images/eyeclosed.png"
+                    : "/images/eyeopen.png"
+                }
                 alt="Toggle confirm password visibility"
                 onClick={toggleConfirmPasswordVisibility}
                 className="toggle-password"
               />
             </div>
           </div>
-          <button type="submit" className="register-button">Register</button>
+          <button type="submit" className="register-button">
+            Register
+          </button>
         </form>
         <div className="login-link">
           Already have an account? <a href="/login">Sign In</a>
@@ -104,4 +109,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
