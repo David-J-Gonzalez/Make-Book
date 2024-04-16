@@ -27,10 +27,10 @@ const Navbar = () => {
         <img src="/images/logo.png" alt="Logo" />
       </div>
       <ul>
-      <li onClick={handleHome} style={{ cursor: 'pointer' }}>Home</li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Library</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li onClick={handleHome} style={{ cursor: 'pointer' }}>Home</li>
+        <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>About</button></li>
+        <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>Library</button></li>
+        <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>Contact Us</button></li>
       </ul>
       <form className="search-form">
         <input type="search" placeholder="Search" aria-label="Search" />

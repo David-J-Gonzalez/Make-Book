@@ -22,7 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "app": "nodemon app.js"
+    "app": "nodemon app.js",
+    "start-node": "cd backend && node app.js",
+    "dev": "concurrently \"npm start\" \"npm run start-node\""
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "nodemon": "^3.1.0"
   }
 }
