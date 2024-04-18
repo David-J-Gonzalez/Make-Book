@@ -20,6 +20,9 @@ const Navbar = () => {
     logOut();
     navigate("/");
   };
+  const handleAccount = () => {
+    navigate('/useraccount'); 
+  };
 
   return (
     <div className="navbar">
@@ -30,7 +33,7 @@ const Navbar = () => {
         <li onClick={handleHome} style={{ cursor: 'pointer' }}>Home</li>
         <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>About</button></li>
         <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>Library</button></li>
-        <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>Contact Us</button></li>
+        <li onClick={handleAccount} style={{ cursor: 'pointer' }}>Account</li>
       </ul>
       <form className="search-form">
         <input type="search" placeholder="Search" aria-label="Search" />

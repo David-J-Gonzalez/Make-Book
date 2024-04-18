@@ -3,6 +3,7 @@
   import GridContainer from "./components/GridContainer";
   import SignIn from "./SignIn/SignIn";
   import SignUp from "./SignUp/SignUp";
+  import UserAccount from "./UserAccount/UserAccount";
   import CreateElement from "./CreateElement/CreateElement";
   import { AuthProvider } from "./auth/AuthContext";
   import ProtectedRoute from "./components/ProtectedRoute";
@@ -54,6 +55,7 @@
             <Route path="/" element={<GridContainer stories={stories} />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/useraccount" element={<UserAccount />} />
               <Route path="/createelement" element={
                 <ProtectedRoute>
                   <CreateElement />
