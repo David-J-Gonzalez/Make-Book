@@ -3,6 +3,7 @@ import "./CreateElement.css";
 import GridContainer from "../components/GridContainer";
 import { useAuth } from "../auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 function CreateElement() {
   const { isLoggedIn } = useAuth();
@@ -13,25 +14,31 @@ function CreateElement() {
 
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
-  const [description, setDescription] = useState("");
   const [cover, setCover] = useState("");
+  const [content, setContent] = useState("");
   const [stories, setStories] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
     const newStory = {
-      id: stories.length + 1,
       title,
-      imageSrc: cover,
-      description,
-      label: genre,
+      genre,
+      cover,
+      content
     };
-
-    setStories([...stories, newStory]);
-    setTitle("");
-    setGenre("");
-    setDescription("");
-    setCover("");
+    try {
+      axios.post('/routes/stories', newStory)
+      .then((res) => {
+        setStories([...stories, newStory]);
+        setTitle("");
+        setGenre("");
+        setCover("");
+        setContent("");
+      });
+    } catch (error) {
+      alert('Error creating story. Please try again\n' + error);
+    }
   };
 
   return (
@@ -44,8 +51,8 @@ function CreateElement() {
           id="story"
           name="story"
           placeholder="Write your story here..."
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
           required
         />
       </main>

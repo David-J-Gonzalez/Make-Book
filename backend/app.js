@@ -19,8 +19,12 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => res.send('Hello world!'));
 app.use('/api/users', userRoutes);
 
+const stories = require('./routes/stories');
+app.use('/routes/stories', stories);
 
-const conn_str = 'mongodb+srv://djgonzalez0209:5RZbthKB1xAY8RAl@cluster0.j5ybklc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+//const conn_str = 'mongodb+srv://djgonzalez0209:5RZbthKB1xAY8RAl@cluster0.j5ybklc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const conn_str = 'mongodb+srv://copillsw:I093CN88d3l51Vib@cluster0.5f2gl4d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
 mongoose.set('strictQuery', false);
 mongoose.connect(conn_str, {})
   .then(() => {
