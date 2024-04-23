@@ -23,7 +23,6 @@ function SignUp() {
 
   const handleSignUp = async (event) => {
     event.preventDefault();
-    console.log("HELPPPPPPPPPPPPPPPPP");
 
     // Ensure password and confirmPassword are the same
     if (password !== confirmPassword) {

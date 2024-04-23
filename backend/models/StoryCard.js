@@ -6,22 +6,17 @@ const storyCardSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  imageSrc: {
+  genre: {
     type: String,
-    required: true
+    required: true,
   },
-  description: {
+cover: {
     type: String,
-    required: true
   },
-  label: {
-    type: String
-  },
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', 
-    required: true
+content: {
+    type: String,
+    required: true,
   }
-}, { timestamps: true });
+});
 
 module.exports = mongoose.model('StoryCard', storyCardSchema);
