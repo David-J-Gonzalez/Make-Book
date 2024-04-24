@@ -12,6 +12,14 @@ const Navbar = () => {
     navigate('/login'); 
   };
 
+  const handleCreate = () => {
+    navigate('/createelement'); 
+  };
+
+  const handleLibrary = () => {
+    navigate('/library'); 
+  };
+
   const handleHome = () => {
     navigate('/'); 
   };
@@ -31,8 +39,8 @@ const Navbar = () => {
       </div>
       <ul>
         <li onClick={handleHome} style={{ cursor: 'pointer' }}>Home</li>
-        <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>About</button></li>
-        <li style={{ cursor: 'default' }}><button style={{ all: 'unset' }}>Library</button></li>
+        <li onClick={handleCreate} style={{ cursor: 'pointer' }}>Make</li>
+        <li onClick={handleLibrary} style={{ cursor: 'pointer' }}>Library</li>
         <li onClick={handleAccount} style={{ cursor: 'pointer' }}>Account</li>
       </ul>
       <form className="search-form">

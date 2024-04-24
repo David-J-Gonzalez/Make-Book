@@ -3,8 +3,10 @@
   import GridContainer from "./components/GridContainer";
   import SignIn from "./SignIn/SignIn";
   import SignUp from "./SignUp/SignUp";
+  import Library from "./Library/Library"
   import UserAccount from "./UserAccount/UserAccount";
   import CreateElement from "./CreateElement/CreateElement";
+  import UpdateElement from "./UpdateElement/UpdateElement";
   import { AuthProvider } from "./auth/AuthContext";
   import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -15,33 +17,26 @@
     {
       id: 1,
       title: "Nexus Chronicles",
-      imageSrc: "/images/nexus.jpg",
-      description:
+      cover: "/images/nexus.jpg",
+      content:
         "The Nexus Chronicles is a heart-wrenching saga of a group of very different personalities developing machinery to build a kingdom.",
       label: "Popular Story",
     },
     {
       id: 2,
       title: "Echoes of the Void",
-      imageSrc: "/images/echo.jpg",
-      description:
+      cover: "/images/echo.jpg",
+      content:
         "In the depths of the stars, a lost traveler stumbles upon a forgotten planet on which the mysterious remains of an ancient civilization are preserved.",
       label: "Popular Story",
     },
     {
       id: 3,
       title: "Aeon Ascension",
-      imageSrc: "/images/aeon.jpg",
-      description:
+      cover: "/images/aeon.jpg",
+      content:
         "In a distant future, mankind has achieved mechanical immortality through rapid advances in technology.",
       label: "Popular Story",
-    },
-    {
-      id: 4,
-      title: "Create Your Story",
-      imageSrc: "/images/plus.jpg",
-      description: "Have an idea? Bring your story to life.",
-      label: "Create Your Story",
     },
   ];
 
@@ -55,10 +50,16 @@
             <Route path="/" element={<GridContainer stories={stories} />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/useraccount" element={<UserAccount />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/useraccount" element={<ProtectedRoute> <UserAccount /> </ProtectedRoute>} />
               <Route path="/createelement" element={
                 <ProtectedRoute>
                   <CreateElement />
+                </ProtectedRoute>
+              } />
+              <Route path="/updateelement" element={
+                <ProtectedRoute>
+                  <UpdateElement />
                 </ProtectedRoute>
               } />
             </Routes>

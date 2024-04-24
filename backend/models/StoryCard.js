@@ -6,14 +6,14 @@ const storyCardSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  genre: {
+  label: {
     type: String,
     required: true,
   },
-cover: {
+  cover: {
     type: String,
   },
-content: {
+  content: {
     type: String,
     required: true,
   }

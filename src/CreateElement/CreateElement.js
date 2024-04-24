@@ -13,7 +13,7 @@ function CreateElement() {
   }
 
   const [title, setTitle] = useState("");
-  const [genre, setGenre] = useState("");
+  const [label, setLabel] = useState("");
   const [cover, setCover] = useState("");
   const [content, setContent] = useState("");
   const [stories, setStories] = useState([]);
@@ -23,18 +23,18 @@ function CreateElement() {
     
     const newStory = {
       title,
-      genre,
       cover,
-      content
+      content,
+      label
     };
     try {
       axios.post('/api/stories/create', newStory)
       .then((res) => {
         setStories([...stories, newStory]);
         setTitle("");
-        setGenre("");
         setCover("");
         setContent("");
+        setLabel("");
       });
     } catch (error) {
       alert('Error creating story. Please try again\n' + error);
@@ -71,10 +71,10 @@ function CreateElement() {
           <label htmlFor="genre">Genre</label>
           <input
             type="text"
-            id="genre"
-            name="genre"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
+            id="label"
+            name="label"
+            value={label}
+            onChange={(e) => setLabel(e.target.value)}
             required
           />
           <label htmlFor="cover">Book cover URL</label>

@@ -1,26 +1,22 @@
-// src/components/StoryCard.js
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './StoryCard.css';
 
-const StoryCard = ({ title, imageSrc, description, label, onClick }) => {
-  const handleClick = () => {
-    if (onClick && label === 'Create Your Story') {
-      onClick();
-    }
+const StoryCard = ({ id, title, cover, content, label }) => {
+  const navigate = useNavigate();
+
+  const handleUpdateClick = () => {
+    navigate(`/updateelement/${id}`);
   };
 
   return (
     <div className="story-card">
-      {imageSrc && <img src={imageSrc} alt={title} />}
-      <div className="story-content">
-        <h3>{title}</h3>
-        {label && <p className="story-label">{label}</p>}
-        <p>{description}</p>
-        {onClick ? (
-          <button className="read-more-btn" onClick={onClick}>Read More</button>
-        ) : (
-          <button className="read-more-btn">Read More</button>
-        )}
+      <img src={cover} alt={title} className="story-image" />
+      <div className="story-details">
+        <h3 className="story-title">{title}</h3>
+        {label && <div className="story-label">{label}</div>}
+        <p className="story-description">{content}</p>
+        <button className="read-more-btn" onClick={handleUpdateClick}>Read More</button>
       </div>
     </div>
   );

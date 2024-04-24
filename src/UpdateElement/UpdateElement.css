@@ -1,0 +1,121 @@
+/* Set the background color of the entire page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F0E6EF; /* Slightly different shade for update page */
+    font-family: Arial, sans-serif;
+}
+
+/* Set up the container to hold your main content and sidebar */
+#update-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Same ratio as CreateElement */
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 40px);
+}
+
+/* Style the header which spans the entire grid */
+header {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #EFEFEF; /* Different header color for differentiation */
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Style the main content area where the user updates their story */
+main {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Style the textarea within the main content area */
+#story {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc; /* Slightly lighter border color */
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Style the aside which contains the form inputs */
+aside {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style form labels and inputs */
+aside label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+aside input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style the 'Update Story' button */
+.update-button {
+    background-color: #444; /* Darker button for update */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.update-button:hover {
+    background-color: #666; /* Darker hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #update-container {
+        grid-template-columns: 1fr;
+    }
+
+    header, main, aside {
+        grid-column: 1 / -1;
+    }
+
+    #story {
+        height: 200px;
+    }
+}
+
+/* Adjust the style of the user-stories for update context */
+.user-stories {
+    margin-top: 20px; 
+    padding: 20px;
+    background-color: #EFEFEF; /* Lighter background for the stories list */
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px; 
+}
