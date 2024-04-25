@@ -1,17 +1,18 @@
-  import React from "react";
-  import Navbar from "./NavBar/Navbar";
-  import GridContainer from "./components/GridContainer";
-  import SignIn from "./SignIn/SignIn";
-  import SignUp from "./SignUp/SignUp";
-  import Library from "./Library/Library"
-  import UserAccount from "./UserAccount/UserAccount";
-  import CreateElement from "./CreateElement/CreateElement";
-  import UpdateElement from "./UpdateElement/UpdateElement";
-  import { AuthProvider } from "./auth/AuthContext";
-  import ProtectedRoute from "./components/ProtectedRoute";
+import React from "react";
+import Navbar from "./NavBar/Navbar";
+import GridContainer from "./components/GridContainer";
+import SignIn from "./SignIn/SignIn";
+import SignUp from "./SignUp/SignUp";
+import Library from "./Library/Library";
+import UserAccount from "./UserAccount/UserAccount";
+import CreateElement from "./CreateElement/CreateElement";
+import UpdateElement from "./UpdateElement/UpdateElement";
+import NotFound from "./components/NotFound"; // Import the NotFound component
+import { AuthProvider } from "./auth/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-  import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-  import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 
   const stories = [
     {
@@ -47,21 +48,14 @@
           <div className="App">
             <Navbar />
             <Routes>
-            <Route path="/" element={<GridContainer stories={stories} />} />
+              <Route path="/" element={<GridContainer stories={stories} />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/library" element={<Library />} />
-              <Route path="/useraccount" element={<ProtectedRoute> <UserAccount /> </ProtectedRoute>} />
-              <Route path="/createelement" element={
-                <ProtectedRoute>
-                  <CreateElement />
-                </ProtectedRoute>
-              } />
-              <Route path="/updateelement" element={
-                <ProtectedRoute>
-                  <UpdateElement />
-                </ProtectedRoute>
-              } />
+              <Route path="/useraccount" element={<ProtectedRoute><UserAccount /></ProtectedRoute>} />
+              <Route path="/createelement" element={<ProtectedRoute><CreateElement /></ProtectedRoute>} />
+              <Route path="/updateelement/:id" element={<ProtectedRoute><UpdateElement /></ProtectedRoute>} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
         </Router>

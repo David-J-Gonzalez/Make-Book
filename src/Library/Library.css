@@ -1,0 +1,63 @@
+/* Library.css */
+.library-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    margin: 20px;
+    padding: 20px;
+    width: 100%; 
+}
+
+.library-title {
+    margin-bottom: 20px;
+    font-size: 36px; 
+    color: #2C3E50; 
+    font-weight: bold;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; 
+    }
+}
+
+.story-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.story-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.story-image {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.story-content {
+    padding: 2px 16px;
+}
+
+.story-content h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.story-content p {
+    font-size: 14px;
+    color: #333;
+}

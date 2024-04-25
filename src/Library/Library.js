@@ -1,8 +1,7 @@
-// src/pages/Library.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import GridContainer from '../components/GridContainer'; // Ensure you import GridContainer
-import './Library.css'; // Your Library specific styles if you have any
+import GridContainer from '../components/GridContainer';
+import './Library.css'; // Ensure CSS is correctly imported
 
 const Library = () => {
   const [stories, setStories] = useState([]);
@@ -17,8 +16,9 @@ const Library = () => {
       } catch (err) {
         setError('An error occurred while fetching stories.');
         console.error(err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     fetchStories();
@@ -32,9 +32,12 @@ const Library = () => {
     return <div>{error}</div>;
   }
 
+  const storiesWithIds = stories.map(story => ({ ...story, id: story._id }));
+
   return (
     <div className="library-container">
-      <GridContainer stories={stories} />
+      <h1 className="library-title">Library</h1> {/* Added title */}
+      <GridContainer stories={storiesWithIds} />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./CreateElement.css";
-import GridContainer from "../components/GridContainer";
 import { useAuth } from "../auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -27,20 +26,27 @@ function CreateElement() {
       content,
       label
     };
+  
     try {
       axios.post('/api/stories/create', newStory)
       .then((res) => {
-        setStories([...stories, newStory]);
+        // You should use the story from the response here
+        // assuming that the server sends back the created story object
+        setStories([...stories, res.data]); 
         setTitle("");
         setCover("");
         setContent("");
-        setLabel("");
+        setLabel(""); // Assuming you have a 'label' state variable like the others
+      })
+      .catch((error) => {
+        // This catch is for handling errors in the POST request
+        alert('Error creating story. Please try again\n' + error);
       });
     } catch (error) {
+      // This catch is likely for catching synchronous errors, which are less common in this context
       alert('Error creating story. Please try again\n' + error);
     }
   };
-
   return (
     <div id="container">
       <header>
@@ -90,12 +96,6 @@ function CreateElement() {
             Add Story
           </button>
         </form>
-      </aside>
-      <aside>
-        <h2>Your Stories</h2>
-        <div className="user-stories">
-          <GridContainer stories={stories} />
-        </div>
       </aside>
     </div>
   );

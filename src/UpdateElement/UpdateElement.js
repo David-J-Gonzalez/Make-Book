@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./UpdateElement.css";
-import GridContainer from "../components/GridContainer";
 import { useAuth } from "../auth/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 
 function UpdateElement() {
-  const { id } = useParams(); // Assuming you're using a route like "/update/:id"
+  const { id } = useParams(); 
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   if (!isLoggedIn) {
@@ -14,18 +13,17 @@ function UpdateElement() {
   }
 
   const [title, setTitle] = useState("");
-  const [genre, setGenre] = useState("");
+  const [label, setLabel] = useState("");
   const [cover, setCover] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch the story to update
     axios.get(`/api/stories/${id}`)
       .then((res) => {
-        const { title, genre, cover, content } = res.data;
+        const { title, label, cover, content } = res.data;
         setTitle(title);
-        setGenre(genre);
+        setLabel(label);
         setCover(cover);
         setContent(content);
         setLoading(false);
@@ -41,7 +39,7 @@ function UpdateElement() {
     
     const updatedStory = {
       title,
-      genre,
+      label,
       cover,
       content
     };
@@ -50,11 +48,23 @@ function UpdateElement() {
       axios.put(`/api/stories/update/${id}`, updatedStory)
       .then((res) => {
         alert('Story updated successfully');
-        navigate("/");
+        navigate("/library");
       });
     } catch (error) {
       alert('Error updating story. Please try again\n' + error);
     }
+  };
+
+  const handleDelete = () => {
+    axios.delete(`/api/stories/delete/${id}`)
+      .then(() => {
+        navigate("/library");
+        alert('Story deleted successfully');
+      })
+      .catch((error) => {
+        console.error('Error during deletion:', error);
+        alert('Error deleting story. Please try again\n' + error.message);
+      });
   };
 
   if (loading) {
@@ -78,7 +88,7 @@ function UpdateElement() {
       </main>
       <aside>
         <h2>Story Details</h2>
-        <form onSubmit={handleUpdate}>
+        <form>
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -88,13 +98,13 @@ function UpdateElement() {
             onChange={(e) => setTitle(e.target.value)}
             required
           />
-          <label htmlFor="genre">Genre</label>
+          <label htmlFor="label">Genre</label>
           <input
             type="text"
-            id="genre"
-            name="genre"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
+            id="label"
+            name="label"
+            value={label}
+            onChange={(e) => setLabel(e.target.value)}
             required
           />
           <label htmlFor="cover">Book cover URL</label>
@@ -106,17 +116,9 @@ function UpdateElement() {
             onChange={(e) => setCover(e.target.value)}
             required
           />
-          <button type="submit" className="update-button">
-            Update Story
-          </button>
+          <button className="update-button" onClick={handleUpdate}>Update Story</button>
+          <button className="delete-button" onClick={handleDelete}>Delete Story</button>
         </form>
-      </aside>
-      {/* You may not need the Your Stories section for updating a story, but I left it here for completeness */}
-      <aside>
-        <h2>Your Stories</h2>
-        <div className="user-stories">
-          <GridContainer stories={[{ title, genre, cover, content }]} />
-        </div>
       </aside>
     </div>
   );
